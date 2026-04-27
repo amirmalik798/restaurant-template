@@ -4,7 +4,7 @@ import { useState } from "react";
 import whatsAppNumber from "../data/whatsapp";
 
 function Cart() {
-  const { cart, removeFromCart, updateQty } = useCart();
+  const { cart, removeFromCart, updateQty, clearCart } = useCart();
 
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
@@ -26,7 +26,11 @@ function Cart() {
 
   function handleSubmit(e) {
     e.preventDefault();
-     window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, "_blank");
+    setName("");
+    setContact("");
+    setAddress("");
+    clearCart();
   }
   return (
   <section className="cart-page">
